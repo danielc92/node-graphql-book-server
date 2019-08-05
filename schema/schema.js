@@ -5,6 +5,12 @@ const {
     GraphQLString,
     GraphQLSchema } = graphql;
 
+var books = [
+    { name: 'ravens jurg', genre: 'science', id: '1' },
+    { name: 'banana farming', genre: 'adventure', id: '2'},
+    { name: 'rainbow synergy', genre: 'cooking', id: '3'}
+]
+
 const BookType = new GraphQLObjectType({
     name: 'Book',
     fields: () => {
@@ -24,6 +30,8 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLString }},
             resolve(parent, args) {
                 //insert code to get data from database
+                console.log(args)
+                return books.filter(item => item.id === args.id)[0]
             }
         }
     }

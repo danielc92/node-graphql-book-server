@@ -6,8 +6,11 @@ const app = express();
 
 // Use the graphql as middleware
 app.use('/graphql', graphqlHTTP({
-    schema
+    schema,
+    graphiql: true
 }));
 
 const port = 3001;
-app.listen(port, ()=>{ console.log(`listening for requests on port ${port}`)})
+app.listen(port, ()=>{ 
+    console.log(`Listening on port ${port}`)
+})
