@@ -1,4 +1,6 @@
 const graphql = require('graphql');
+const Book = require('../models/book.model');
+const Author = require('../models/author.model');
 
 const { 
     GraphQLObjectType,
@@ -28,8 +30,7 @@ const BookType = new GraphQLObjectType({
             author: { 
                 type: AuthorType,
                 resolve(parent, args) {
-                    console.log('this is the parent', parent)
-                    return authors.filter(item => item.id === parent.authorId)[0]
+                  
                 }
             }
         }
@@ -46,8 +47,7 @@ const AuthorType = new GraphQLObjectType({
             books: { 
                 type: new GraphQLList(BookType),
                 resolve(parent, args) {
-                    console.log(args)
-                    return books.filter(book => book.authorId === parent.id)
+                    
                 }
             }
         }
@@ -62,27 +62,26 @@ const RootQuery = new GraphQLObjectType({
             type: BookType,
             args: { id: { type: GraphQLString }},
             resolve(parent, args) {
-                //insert code to get data from database
-                return books.filter(item => item.id === args.id)[0]
+
             }
         },
         author: {
             type: AuthorType,
             args: { id: { type: GraphQLID }},
             resolve(parent, args){
-                return authors.filter(item => item.id === args.id)[0]
+               
             }
         },
         books: {
             type: new GraphQLList(BookType),
             resolve(parent, args){
-                return books
+
             }
         },
         authors: {
             type: new GraphQLList(AuthorType),
             resolve(parent, args) {
-                return authors
+
             }
         }
     }
