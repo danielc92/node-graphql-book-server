@@ -10,16 +10,6 @@ const {
     GraphQLInt,
     GraphQLSchema } = graphql;
 
-var books = [
-    { name: 'ravens jurg', genre: 'science', id: '1', authorId: '3' },
-    { name: 'banana farming', genre: 'adventure', id: '2', authorId: '4'},
-    { name: 'rainbow synergy', genre: 'cooking', id: '3', authorId: '4'}
-]
-
-var authors = [
-    { name: 'bobby boosan', age: 33, id: '4'}
-]
-
 const BookType = new GraphQLObjectType({
     name: 'Book',
     fields: () => {
@@ -29,8 +19,7 @@ const BookType = new GraphQLObjectType({
             genre: { type: GraphQLString },
             author: { 
                 type: AuthorType,
-                resolve(parent, args) {
-                  
+                resolve(parent, args) {  
                 }
             }
         }
@@ -49,6 +38,28 @@ const AuthorType = new GraphQLObjectType({
                 resolve(parent, args) {
                     
                 }
+            }
+        }
+    }
+})
+
+
+// Mutations allow to update and insert data via GraphQL
+const Mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addAuthor: {
+            type: Author,
+            args: {
+                name: { type: GraphQLString },
+                age: { type: GraphQLInt }
+            },
+            resolve(parent, args) {
+                let author = new Author({
+                    name: args.name,
+                    age: args.age
+                })
+                author.save()
             }
         }
     }
@@ -91,5 +102,6 @@ const RootQuery = new GraphQLObjectType({
 // export for server.js usage
 module.exports = new GraphQLSchema({
     query: RootQuery,
+    mutation: Mutation
 
 })
