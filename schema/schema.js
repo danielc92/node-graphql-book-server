@@ -6,6 +6,7 @@ const {
     GraphQLObjectType,
     GraphQLString,
     GraphQLID,
+    GraphQLNonNull,
     GraphQLList,
     GraphQLInt,
     GraphQLSchema } = graphql;
@@ -52,7 +53,7 @@ const Mutation = new GraphQLObjectType({
         addAuthor: {
             type: AuthorType,
             args: {
-                name: { type: GraphQLString },
+                name: { type: new GraphQLNonNull(GraphQLString) },
                 age: { type: GraphQLInt }
             },
             resolve(parent, args) {
@@ -66,8 +67,8 @@ const Mutation = new GraphQLObjectType({
         addBook: {
             type: BookType,
             args: {
-                name: { type: GraphQLString },
-                genre: { type: GraphQLString },
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                genre: { type: new GraphQLNonNull(GraphQLString) },
                 authorId: { type: GraphQLID }
             },
             resolve(parent, args){
@@ -90,26 +91,26 @@ const RootQuery = new GraphQLObjectType({
             type: BookType,
             args: { id: { type: GraphQLString }},
             resolve(parent, args) {
-
+                return Book.findById(args.id)
             }
         },
         author: {
             type: AuthorType,
             args: { id: { type: GraphQLID }},
             resolve(parent, args){
-               
+               return Author.findById(args.id)
             }
         },
         books: {
             type: new GraphQLList(BookType),
             resolve(parent, args){
-
+                return Book.find({})
             }
         },
         authors: {
             type: new GraphQLList(AuthorType),
             resolve(parent, args) {
-
+                return Author.find({})
             }
         }
     }
