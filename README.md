@@ -16,6 +16,10 @@ From root project directory. `nodemon` allows for hot-reloading. Alternatively y
 nodemon server.js
 ```
 
+### Accessing the server
+
+You can access the server in browser using the `GraphiQL` interface via `http://localhost:3001/graphql`. Conversely you can access it via the frontend. In this case I accessed the GraphQL server using Apollo and React. However I used `GraphiQL` for testing purposes.
+
 ### Requirements
 
 This server runs on Node. The version of Node I used was `v10.16.0`.
