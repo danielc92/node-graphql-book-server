@@ -1,9 +1,16 @@
 # GraphQL Javascript Server
 Backend server for book app, using MongoDB, Mongoose, GraphQL and Nodejs.
 
+### Concepts
+This project covers;
+- Creating a basic web server with Express and Node.
+- Creating a MongoDB instance and accessing it via Mongoose ODM.
+- Adding a query layer (GraphQL) to access and manipulate data from MongoDB.
+- Exposing the server, such that a front-end application can access it (eg. React).
+
 ### Running the server
 
-From root project directory.
+From root project directory. `nodemon` allows for hot-reloading. Alternatively you can run the server with `node server.js`.
 
 ```sh
 nodemon server.js
