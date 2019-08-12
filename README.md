@@ -33,15 +33,21 @@ npm install
 ```
 
 ### Screenshots
+Screenshots taken from graphiql interface after visiting `localhost:3001/graphql` in chrome. The last two screenshots showcase the extreme flexiblity which GraphQL allows for, allowing for very deep nesting and optional fields makes it a great tool for querying client side.
 
+**Using the addAuthor mutation to create new author(s).**
 ![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/1.png)
 
+**Querying author(s).**
 ![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/2.png)
 
+**Using the addBook mutation to create new book(s).**
 ![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/3.png)
 
+**Querying books, as well as their respective author.**
 ![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/4.png)
 
+**Querying authors, as well as their respective books.**
 ![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/5.png)
 
 ### Sources
