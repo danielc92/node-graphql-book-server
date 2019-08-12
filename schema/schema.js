@@ -43,6 +43,8 @@ const AuthorType = new GraphQLObjectType({
             last_name: { type: GraphQLString },
             country: { type: GraphQLString },
             age: { type: GraphQLInt },
+            createdAt: { type: GraphQLString },
+            updatedAt: { type: GraphQLString },
             books: { 
                 type: new GraphQLList(BookType),
                 resolve(parent, args) {
