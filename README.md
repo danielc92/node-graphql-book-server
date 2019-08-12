@@ -32,6 +32,10 @@ The requirements are shown in package.json and can be installed via
 npm install
 ```
 
+### Screenshots
+
+
+
 ### Sources
 
 - [GraphQL npm package](https://www.npmjs.com/package/graphql)
