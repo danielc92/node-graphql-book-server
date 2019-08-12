@@ -107,8 +107,10 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 let author = new Author({
-                    name: args.name,
-                    age: args.age
+                    age: args.age,
+                    first_name: args.first_name,
+                    last_name: args.last_name,
+                    country: args.country
                 })
                 return author.save()
             }
