@@ -34,7 +34,15 @@ npm install
 
 ### Screenshots
 
+![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/1.png)
 
+![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/2.png)
+
+![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/3.png)
+
+![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/4.png)
+
+![An image from graphiql](https://github.com/danielc92/node-graphql-book-server/blob/master/screenshots/5.png)
 
 ### Sources
 
